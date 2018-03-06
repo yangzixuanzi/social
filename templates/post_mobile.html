@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>金融岛-打开财富之门</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />-->
+    <link rel="bookmark" href="../images/favicon.ico" >
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+</head>
+
+<body>
+    {% include 'commons/body_top_mobile.html' %}
+    <div id="body">
+        <div class="container ">
+            <div class="cards page">
+                <!--<div class="side-container">-->
+                <!--<div class="blk-2x"></div>-->
+                    <!--<div class="community-block">-->
+                        <!--<div class="img"><a href="/community?id={{post.community.id}}&type=query"><img alt="{{post.community.name}}岛" title="{{post.community.name}}岛" src="{{post.community.head_img_url}}"></a></div>-->
+                        <!--<div class="content">-->
+                            <!--<h4><a href="/community?id={{post.community.id}}&type=query">{{post.community.name}}岛</a></h4>-->
+                            <!--<p>{{post.community.desc}}</p>-->
+                        <!--</div>-->
+                        <!--<div class="blk-1x"></div>-->
+                        <!--<div class="divider solid"></div>-->
+                        <!--<div class="block-bar">-->
+                            <!--<div class="span"><em>帖子</em><b>{{post.community.post_num}}</b></div>-->
+                            <!--<div class="span"><em>成员</em><b class="comm_user_num">{{post.community.user_num}}</b></div>-->
+                            <!--<div class="span">-->
+                                <!--{%if has_join%}-->
+                                <!--<a id="join" href="javascript:void(0)" class="btn btn-primary hide"><i>+</i>入岛</a>-->
+                                <!--<a id="left" href="javascript:void(0)" class="btn btn-primary">离岛</a>-->
+                                <!--{%else%}-->
+                                <!--<a id="join" href="javascript:void(0)" class="btn btn-primary"><i>+</i>入岛</a>-->
+                                <!--<a id="left" href="javascript:void(0)" class="btn btn-primary hide">离岛</a>-->
+                                <!--{%endif%}-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="mian-container">
+                    <div class="media-content post-detail">
+                        <div class="item">
+                            <div class="photo">
+                                <a href="/user_info_post?user_id={{post.user.id}}"><img src="{{post.user.head_img_url}}"></a>
+                            </div>
+                            <div class="content">
+                                <div class="block-bar">
+                                    <span><a href="/user_info_post?user_id={{post.user.id}}">{{post.user.name}}</a></span>
+                                    {% if post.user.is_approve==1%}
+                                        <span title="个人认证" class="mark-i s v"><i class="icon-v"></i></span>
+                                    {% endif %}
+                                    <span>{{post.create_time}}</span>
+                                </div>
+                                <h4><a href="#">{{post.title}}</a></h4>
+                                <p>{{post.content|safe}}</p>
+                                <div class="block-bar">
+                                    <span class="heart">
+                                        <a onclick="post_like()" href="javascript:void(0)">
+                                            {% if post.like_status%}
+                                                <i class="icon-heart"></i>
+                                            {%else%}
+                                                <i class="icon-heart-o"></i>
+                                            {% endif %}
+                                            <em>喜欢</em><b></b>
+                                            <em class="like_num">
+                                                {{post.like_num}}
+                                            </em>
+                                        </a>
+                                    </span>
+                                    <div class="control-right">
+                                        <div class="row-1x">
+                                            <div class="group-span-1x">
+                                                {%if post.create_user_id==session.get('userinfo')['id']%}
+                                                <span><a id="post-del" href="javascript:void(0)">删除</a></span>
+                                                {%endif%}
+                                                <span>来自：<a href="/community?id={{post.community.id}}&type=query">{{post.community.name}}岛</a></span><span>{{post.reply_num}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input id="like_status" type="hidden" value="{{post.like_status}}">
+                            </div>
+                        </div>
+                        <div class="solid divider"></div>
+                    </div>
+                    <div class="update-reply hide">{% include 'update.html' %}</div>
+                    <div class="comment-reply-box hide">{% include 'emoji-input.html' %}</div>
+                    <div class="post-list">
+                    </div>
+                    <div class="blk-3x"></div>
+                     <ul id="page" class="pagination" maxshowpageitem="5" >
+                     </ul>
+                    <div class="post-input">
+                    <h4>发表回复</h4>
+                    {% include 'commons/common.html' %}
+                    {% include 'input.html' %}
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% include 'commons/footer.html'%}
+    <script src="../lib/js/post.js"></script>
+    <script src="../lib/js/page/page.js"></script>
+</body>
+
+</html>
+<script type="text/javascript">
+    var post_id = {{post.id}}
+    var community_id = {{post.community.id}}
+    var num_perpage = 10;
+    var page_no = 1;
+    var total = {{post.floor_num}};
+    initData();
+</script>

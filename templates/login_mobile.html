@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>金融岛-打开财富之门</title>
+    <link rel="bookmark" href="../images/favicon.ico" >
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../stylesheets/core.css" />
+    <link rel="stylesheet" href="../stylesheets/iconfont.css" />
+</head>
+
+<body>
+    <div class="divider solid "></div>
+    <div id="body ">
+        <div class="container ">
+            <div class="blk-2x"></div>
+            <div class="cards user-form">
+            <div class="box-sm">
+                <div class="blk-5x"></div>
+                <div class="logo-brand">
+                <a href="http://social.jinrongdao.creditease.cn/index"><img src="../images/logo.png" alt="金融岛"></a>
+                </div>
+                <!--<div class="heading"><span>欢迎来到金融岛！</span></div>-->
+                    <div class="form-group">
+                        <input type="text" onfocus="onInput()" placeholder="手机号或用户名"  name="name" id="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" onfocus="onInput()" placeholder="密码" name="password" id="password" class="form-control">
+                    </div>
+                    <div class="blk-2x"></div>
+                    <div class="form-group">
+                        <button type="submit" id="login-btn" class="btn btn-md btn-primary btn-block">登录</button>
+                    </div>
+                    <div class="blk-2x"></div>
+                    <small class="pull-right">还没有帐号？<a href="/regist" class="text-info">马上注册</a></small><small><a href="/forget_password">忘记密码?</a></small>
+
+                    <div class="blk-2x"></div>
+                    <div id="msg" class="text-danger">
+                        {%if msg %}
+                        {{msg}}
+                        {%endif %}
+                    </div>
+                    <div class="blk-6x"></div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="../lib/jquery-1.8.1.min.js "></script>
+    <script src="../lib/js/register.js"></script>
+</body>
+</html>
+<style TYPE="text/css">
+.user-form {
+    background: none;
+    width: 100%;
+    height: 100%;
+}
+.container {
+    width: 100%;
+    height:100%;
+}
+.user-form .box-sm {
+    height: 100%;
+}
+.box-sm {
+    padding:0;
+    width: 100%;
+    height: 100%;
+    box-shadow:none;
+    border-radius:0;
+    border:none;
+}
+.form-control {
+    display: block;
+    padding: 5px 8px;
+    width: 100%;
+    height: 50px;
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+.btn-md {
+    padding: 15px 15px;
+    font-size: 1.8em;
+}
+.user-form .heading {
+    font-size: 2.6rem;
+}
+.logo-brand {
+    position: relative;
+    top: 3px;
+    padding: 10px 0px;
+    width: 100%;
+    text-align: center;
+}
+.logo-brand img {
+    height: 60px;
+}
+small{font-size:1.6rem}
+</style>

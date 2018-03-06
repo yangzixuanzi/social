@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>金融岛-打开财富之门</title>
+    <link rel="bookmark" href="../images/favicon.ico" >
+    <link rel="shortcut icon" href="../images/favicon.ico" />  
+</head>
+
+<body>
+    {% include 'commons/body_top_mobile.html' %}
+    <div id="body">
+        <div class="container ">
+            <div class="cards page">
+                <div class="mian-container">
+                    <div class="section">
+                        <div class="heading border">
+                            <h4>相关帖子</h4></div>
+                        <div class="media-content post-list">
+                            {%if post_list%}
+                                {%for post in post_list %}
+                                <div class="item">
+                                    <div class="photo">
+                                        <a href="/user_info_post?type=1&user_id={{post.user.id}}"><img src="{{post.user.head_img_url}}"></a>
+                                    </div>
+                                    <div class="content">
+                                        <div class="block-bar">
+                                            <span><a href="/user_info_post?user_id={{post.user.id}}">{{post.user.name}}</a></span>
+                                            <span>{{post.create_time}}</span>
+                                        </div>
+                                        <h4><a href="post?id={{post.id}}&type=postInfo">{{post.title}}</a></h4>
+                                        <p>{{post.content}}</p>
+                                        <div class="block-bar">
+                                                <div class="row-1x">
+                                                    <div class="group-span-1x"><span>来自：<a href="#">{{post.community.name}}</a></span><span><a href="#"><em>评论</em></a><b>{{post.floor_num}}</b></span></div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            {%else%}
+                            <div class="blk-5x"></div>
+                            <div style="text-align:center">没有找到相关的内容</div>
+                            {%endif%}
+                        </div>
+                    </div>
+                    <div class="blk-2x"></div>
+
+                </div>
+                <div class="side-container">
+                    {%if adverse_list or user_list %}
+                    <div class="section heading"><h4>相关用户</h4></div>
+                    {%endif%}
+                    <div class="blk-1x"></div>
+                    <div class="row">
+                    {%if adverse_list%}
+                        {%for adverse in adverse_list %}
+                        <div class="col-md-4 adverse">
+                            <div class="user-image rounded">
+                                <input type="hidden" name="adverseId" value="{{adverse.id}}">
+                                <div class="img">
+                                    <a class="adverse" href="javascript:void(0)" rel="{{adverse.targetUrl}}"><img src="{{adverse.imgUrl}}"></a>
+                                </div>
+                                <div class="card-title">
+                                    <span>(推广)</span>
+                                    <a class="adverse" href="javascript:void(0)" rel="{{adverse.targetUrl}}">{{adverse.adverseDescribe}}</a>
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                    {%endif%}
+                    {%if user_list%}
+                        {%for user in user_list %}
+                        <div class="col-md-4">
+                            <div class="user-image rounded">
+                                <div class="img">
+                                    <img src="{{user.head_img_url}}">
+                                </div>
+                                <div class="card-title">
+                                    <a href="/user_info_post?type=1&user_id={{user.id}}">{{user.name}}</a>
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                    {%endif%}
+                     </div>
+                    <div class="section heading"><h4>相关社区</h4></div>
+                    <div class="blk-1x"></div>
+                    {%if comm_list%}
+                        {%for community in comm_list %}
+                        <div class="community-block">
+                            <div class="img"><img src="{{community.head_img_url}}"></div>
+                            <div class="content">
+                                <h4><a href="/community?id={{community.id}}&type=query">{{community.name}}</a></h4>
+                                <p>{{community.describe}}</p>
+                            </div>
+                            <div class="blk-1x"></div>
+                            <div class="divider solid"></div>
+                            <div class="block-bar">
+                                <div class="span"><em>帖子</em><b>{{community.post_num}}</b></div>
+                                <div class="span"><em>成员</em><b>{{community.user_num}}</b></div>
+                            </div>
+                        </div>
+                        {% endfor%}
+                    {%else%}
+                        <div>没有找到相关的内容</div>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'commons/footer.html'%}
+<script>
+(function($) {
+    $.fn.moreText = function(options) {
+        var defaults = {
+            maxLength: 50,
+            mainCell: "p",
+            openBtn: '查看全部',
+            closeBtn: '收起'
+        }
+        return this.each(function() {
+            var _this = $(this);
+            var opts = $.extend({}, defaults, options);
+            var maxLength = opts.maxLength;
+            var TextBox = $(opts.mainCell, _this);
+            var openBtn = opts.openBtn;
+            var closeBtn = opts.closeBtn;
+            var countText = TextBox.html();
+            var newHtml = '';
+            if (countText.length > maxLength) {
+                newHtml = countText.substring(0, maxLength) + '...<span class="text-more">' + openBtn + '</span>';
+            } else {
+                newHtml = countText;
+            }
+            TextBox.html(newHtml);
+            TextBox.on("click", ".text-more", function() {
+                if ($(this).text() == openBtn) {
+                   TextBox.html(countText + ' <span class="text-more">' + closeBtn + '</span>');
+                } else {
+                   TextBox.html(newHtml);
+                }
+            });
+        })
+    }
+})(jQuery);
+$(function() {
+        $(".post-list>.item>.content").moreText({
+                maxLength: 140,
+                mainCell: 'p'
+            }
+        );
+    }
+)
+
+var search = '{{search}}';
+$('#search_input_community_post_person').val(search);
+$('a.adverse').click(function(){
+    var url = $(this).attr('rel');
+    var adverseId = $(this).parent().siblings('input[name="adverseId"]').val();
+    $.ajax({
+    type:'GET',
+    url:'/pay_adverse',
+    data:{
+        'url':url,
+        'adverseId':adverseId,
+        'search':search
+    },
+    timeout:5000,
+    success:function(data){
+        if(data.code==0){
+           window.location.href = url;
+        }else{
+           console.log(data.message)
+        }
+    }
+    })
+})
+</script>
+</body>
+</html>
+<style type="text/css">
+html{
+    width:100%;
+}
+.container {
+    width:100%;
+    padding: 0 50px 30px 50px;
+}
+.mian-container {
+    width: 100%;
+    border-right:none;
+    padding: 0 50px 30px 50px;
+}
+.side-container {
+    width:auto;
+}
+.community-block {
+    margin: 15px;
+    width: 369px;
+    float: left;
+}
+</style>

@@ -1,0 +1,90 @@
+html{
+    width:100%;
+    min-height:500px;
+}
+body{
+    font-size: 1.6rem;
+}
+.container {
+    width:100%;
+}
+.btn, button{
+    font-size: 1.6rem;
+}
+.mian-container {
+    width: 100%;
+    border-right:none;
+    padding: 0 30px 30px 30px;
+}
+.page {
+    border-bottom:none;
+}
+.mian-container .content h4 {
+    font-size: 2.0rem;
+    line-height: 2.0;
+}
+.mian-container .content p {
+    font-size: 1.8rem;
+}
+.mian-container .content .block-bar {
+    font-size: 1.6rem;
+}
+.post-list .content h4 {
+    font-size: 2.5rem;
+}
+.post-list .content p,.post-list .content div {
+    font-size: 2.0rem;
+    line-height: 2.0;
+}
+.post-list .block-bar {
+    font-size: 1.8rem;
+}
+.post-list .block-bar .like {
+    top: -10px;
+}
+.editor .cancel {
+    right: 60px;
+}
+.media-content .block-bar {
+    font-size: 1.8rem;
+}
+.media-content .content h4 {
+    font-size: 2.5rem;
+    line-height: 2.5;
+}
+.media-content .content p,.media-content .content div{
+    font-size: 2.0rem;
+    line-height: 2.0;
+}
+.post-list .content .reply-content {
+    font-size: 2.0rem;
+    line-height: 2.0;
+}
+/*--个人主页--*/
+.community .content  h4 {
+    font-size: 2.0rem;
+    line-height: 2.0;
+}
+.community .content  p {
+    font-size: 1.8rem;
+    line-height: 1.8;
+}
+.community .content  .block-bar {
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+.user-list .content  h4 {
+    font-size: 2.0rem;
+    line-height: 2.0;
+}
+.user-list .content  p {
+    font-size: 1.8rem;
+    line-height: 1.8;
+}
+.user-list .content  .block-bar {
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+.my-header .content p {
+    font-size: 1.6rem;
+}

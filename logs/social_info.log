@@ -1,0 +1,19 @@
+2018-01-30 20:57:28,387 - mod_community.py - [line:34] - INFO - type commend_community
+2018-01-30 20:57:28,389 - db_model_community.py - [line:126] - INFO - no:1,num:4
+2018-01-30 20:57:29,660 - mod_community.py - [line:34] - INFO - type commend_community
+2018-01-30 20:57:29,661 - db_model_community.py - [line:126] - INFO - no:1,num:4
+2018-01-30 20:57:39,732 - mod_community.py - [line:34] - INFO - type commend_community
+2018-01-30 20:57:39,734 - db_model_community.py - [line:126] - INFO - no:1,num:4
+2018-01-30 21:00:08,747 - mod_community.py - [line:34] - INFO - type commend_community
+2018-01-30 21:00:08,749 - db_model_community.py - [line:126] - INFO - no:1,num:4
+2018-01-30 21:00:09,975 - mod_community.py - [line:34] - INFO - type commend_community
+2018-01-30 21:00:09,976 - db_model_community.py - [line:126] - INFO - no:1,num:4
+2018-01-30 21:00:12,115 - mod_post.py - [line:226] - INFO - now do query post,id:1
+2018-01-30 21:00:12,292 - db_model_reply.py - [line:112] - INFO - post id:1
+2018-01-30 21:00:12,336 - db_model_reply.py - [line:98] - INFO - no:1,num:10,post id:1
+2018-01-30 21:00:15,618 - mod_community.py - [line:34] - INFO - type query
+2018-01-30 21:00:15,619 - mod_community.py - [line:87] - INFO - now query community info by id
+2018-01-30 21:00:15,767 - db_model_community.py - [line:126] - INFO - no:1,num:4
+2018-01-30 21:00:15,808 - main.py - [line:158] - INFO - total:1
+2018-01-30 21:00:15,821 - mod_post.py - [line:214] - INFO - now query post in communit id:2
+2018-01-30 21:00:15,871 - main.py - [line:151] - INFO - result total:1

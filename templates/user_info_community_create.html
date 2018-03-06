@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>金融岛-打开财富之门</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="bookmark" href="../images/favicon.ico" >
+    <link rel="shortcut icon" href="../images/favicon.ico" /> 
+</head>
+
+<body>
+    {% include 'commons/body_top.html' %}
+    <div class="divider solid "></div>
+    <div id="body">
+        <div class="container ">
+            <div class="cards page">
+             {% include 'user_info_side_right.html' %}
+                <div class="mian-container r">
+                    <div class="blk-1x"></div>
+                    <div class="community">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'user_info_modify.html' %}
+    {% include 'commons/footer.html' %}
+    <script src="../lib/js/user.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    var pageNo = 1;
+    var pageSize = 20;
+    var total_size = 0;
+    var has_next = false;
+    get_user_create_community(pageNo);
+    $(window).scroll(function(event){
+        var wScrollY = window.scrollY; // 当前滚动条位置
+        var wInnerH  = window.innerHeight; // 设备窗口的高度（不会变）
+        var bScrollH = document.body.scrollHeight; // 滚动条总高度
+        if (wScrollY + wInnerH + 20 >= bScrollH) {
+            if(has_next){
+                pageNo++;
+                console.log(pageNo);
+                get_user_create_community(pageNo);
+                console.log("到底了.");
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>
